@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Classification System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Question Classification System</h1>
+        <p class="subtitle">Enter a question to classify it into categories like Person, Location, Time, etc.</p>
+        
+        <form method="POST" action="/predict">
+            <div class="input-group">
+                <input type="text" name="question" id="question" placeholder="e.g., Who is Elon Musk?" value="{{ question or '' }}" required>
+                <button type="submit">Classify</button>
+            </div>
+        </form>
+        
+        {% if prediction %}
+        <div class="result">
+            <h2>{{ prediction }}</h2>
+        </div>
+        {% endif %}
+        
+        <div class="examples">
+            <h3>Sample Questions:</h3>
+            <ul>
+                <li>"Who is Elon Musk?" → <span class="category person">Person</span></li>
+                <li>"Where is Taj Mahal?" → <span class="category location">Location</span></li>
+                <li>"When was Python created?" → <span class="category time">Time</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
