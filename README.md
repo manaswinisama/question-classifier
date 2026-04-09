@@ -65,5 +65,5 @@ question-classifier/
 - Retrains if `question_classifier.joblib` missing
 - Uses `dataset.csv` with TF-IDF (5000 features, n-grams)
 
-Built with ❤️ using Python, scikit-learn, NLTK, Flask.
+
 
